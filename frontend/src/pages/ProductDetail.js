@@ -19,7 +19,7 @@ export default function ProductDetail() {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/products/${id}`)
+    axios.get(`https://shopx-hpfw.onrender.com/api/products/${id}`)
       .then(r => setProduct(r.data))
       .catch(() => toast.error('Product not found'))
       .finally(() => setLoading(false));

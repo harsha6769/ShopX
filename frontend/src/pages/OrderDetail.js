@@ -19,7 +19,7 @@ export default function OrderDetail() {
   const { authHeader } = useAuth();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/orders/${id}`, authHeader())
+    axios.get(`https://shopx-hpfw.onrender.com/api/orders/${id}`, authHeader())
       .then(r => setOrder(r.data))
       .catch(() => {})
       .finally(() => setLoading(false));

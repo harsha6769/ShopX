@@ -20,7 +20,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products/featured')
+    axios.get('https://shopx-hpfw.onrender.com/api/products/featured')
       .then(r => setFeatured(r.data))
       .catch(() => {})
       .finally(() => setLoading(false));

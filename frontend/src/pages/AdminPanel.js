@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
-const API = 'http://localhost:5000';
+const API = 'https://shopx-hpfw.onrender.com';
 
 const EMPTY_PRODUCT = {
   name: '', description: '', price: '', originalPrice: '',

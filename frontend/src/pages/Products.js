@@ -27,7 +27,7 @@ export default function Products() {
       if (category) params.category = category;
       if (sort) params.sort = sort;
 
-      const { data } = await axios.get('http://localhost:5000/api/products', { params });
+      const { data } = await axios.get('https://shopx-hpfw.onrender.com/api/products', { params });
       setProducts(data.products);
       setTotal(data.total);
     } catch (e) {

@@ -41,7 +41,7 @@ export default function Checkout() {
 
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/orders/cod', {
+      await axios.post('https://shopx-hpfw.onrender.com/api/orders/cod', {
         items: cart.map(i => ({ product: i._id, quantity: i.quantity })),
         shippingAddress: address,
         totalAmount: total
@@ -67,7 +67,7 @@ export default function Checkout() {
       const loaded = await loadRazorpay();
       if (!loaded) return toast.error('Razorpay failed to load!');
 
-      const { data } = await axios.post('http://localhost:5000/api/payment/create-order', {
+      const { data } = await axios.post('https://shopx-hpfw.onrender.com/api/payment/create-order', {
         items: cart.map(i => ({ product: i._id, quantity: i.quantity })),
         shippingAddress: address
       }, authHeader());
@@ -81,7 +81,7 @@ export default function Checkout() {
         order_id: data.razorpayOrderId,
         handler: async (response) => {
           try {
-            await axios.post('http://localhost:5000/api/payment/verify', {
+            await axios.post('https://shopx-hpfw.onrender.com/api/payment/verify', {
               orderId: data.orderId,
               ...response
             }, authHeader());
